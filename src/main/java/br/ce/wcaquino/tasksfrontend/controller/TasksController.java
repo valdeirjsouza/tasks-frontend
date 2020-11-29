@@ -30,6 +30,7 @@ public class TasksController {
 		return "http://" + BACKEND_HOST + ":" + BACKEND_PORT;
 	}
 	
+	
 	@GetMapping("")
 	public String index(Model model) {
 		model.addAttribute("todos", getTodos());
@@ -50,7 +51,7 @@ public class TasksController {
 			RestTemplate restTemplate = new RestTemplate();
 			restTemplate.postForObject(
 					getBackendURL() + "/tasks-backend/todo", todo, Object.class);			
-			model.addAttribute("sucess", "Sucess!");
+			model.addAttribute("success", "Success!");
 			return "index";
 		} catch(Exception e) {
 			Pattern compile = Pattern.compile("message\":\"(.*)\",");
